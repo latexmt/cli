@@ -1,0 +1,64 @@
+import argparse
+
+
+parser = argparse.ArgumentParser(
+    prog='latexmt', formatter_class=argparse.RawTextHelpFormatter)
+
+parser.add_argument(
+    'root_documents',
+    nargs='*',
+    help='filename(s) of LaTeX root document(s) to be translated\npass \'-\' or omit for stdin')
+parser.add_argument(
+    '-o', '--output',
+    help='directory name for output documents\npass \'-\' to direct all output to stdout',
+    default='./latexmt_out',
+    required=False)
+parser.add_argument(
+    '-s', '--src-lang',
+    default='de'
+)
+parser.add_argument(
+    '-t', '--tgt-lang',
+    default='en'
+)
+parser.add_argument(
+    '-l', '--log-level',
+    choices=['CRITICAL', 'ERROR', 'WARN', 'INFO', 'DEBUG'],
+    default='INFO'
+)
+parser.add_argument(
+    '-T', '--translator',
+    choices=['null', 'opus', 'api_opus', 'api_deepl', 'api_openai'],
+    default='opus'
+)
+parser.add_argument(
+    '-A', '--aligner',
+    help='NOTE: opus and null aligner may only be used with respective translators',
+    choices=['auto', 'null', 'opus', 'awesome'],
+    default='auto'
+)
+parser.add_argument(
+    '-M', '--opus-model-base',
+    help='use specified model (local or on HF) instead of Helsinki-NLP/opus-mt-{src}-{tgt}\n' +
+    '{src} and {tgt} may be used as placeholders for source and target language',
+    required=False
+)
+parser.add_argument(
+    '-g', '--glossary',
+    help='path to file containing glossary in SOURCE,TARGET format',
+    required=False
+)
+parser.add_argument(
+    '--glossary-method',
+    help='glossary enforcement method',
+    choices=['auto', 'align', 'srcrepl'],
+    default='auto',
+    required=False
+)
+parser.add_argument(
+    '--glossary-fallback',
+    help='glossary enforcement method used when translator builtin is not available',
+    choices=['align', 'srcrepl'],
+    default='align',
+    required=False
+)

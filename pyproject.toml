@@ -1,0 +1,23 @@
+[project]
+name = "latexmt-cli"
+version = "1.0.0"
+authors = [
+  { name="Calvin Hoy", email="calvin.hoy@student.uibk.ac.at" },
+]
+description = "CLI for LaTeXMT"
+requires-python = ">=3.10"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: Linux",
+]
+dependencies = [
+  "latexmt-core",
+  "argparse"
+]
+
+[project.scripts]
+latexmt = "latexmt_cli:main"
+
+[project.urls]
+Homepage = "https://git.uibk.ac.at/csaz9385/latexmt-cli"
+Issues = "https://git.uibk.ac.at/csaz9385/latexmt-cli/issues"
