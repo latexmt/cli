@@ -44,7 +44,7 @@ parser.add_argument(
     required=False
 )
 parser.add_argument(
-    '-g', '--glossary',
+    '-g', '--glossary-file',
     help='path to file containing glossary in SOURCE,TARGET format',
     required=False
 )

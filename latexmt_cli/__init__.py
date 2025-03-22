@@ -37,7 +37,7 @@ def main():
 
     glossary: Glossary = dict()
     if args.glossary is not None:
-        glossary = load_glossary(csv_path=Path(args.glossary))
+        glossary = load_glossary(csv_path=Path(args.glossary_file))
 
     from latexmt_core.document_processor import DocumentTranslator
     processor = DocumentTranslator(translator=translator,
