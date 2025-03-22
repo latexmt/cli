@@ -33,14 +33,15 @@ parser.add_argument(
 )
 parser.add_argument(
     '-A', '--aligner',
-    help='NOTE: opus and null aligner may only be used with respective translators',
-    choices=['auto', 'null', 'opus', 'awesome'],
+    help=("'auto' selects translator's built-in aligner for if supported\n"
+          "translators with alignment support: null, opus"),
+    choices=['auto', 'awesome'],
     default='auto'
 )
 parser.add_argument(
     '-M', '--opus-model-base',
-    help='use specified model (local or on HF) instead of Helsinki-NLP/opus-mt-{src}-{tgt}\n' +
-    '{src} and {tgt} may be used as placeholders for source and target language',
+    help=('use specified model (local or on HF) instead of Helsinki-NLP/opus-mt-{src}-{tgt}\n'
+          '{src} and {tgt} may be used as placeholders for source and target language'),
     required=False
 )
 parser.add_argument(
