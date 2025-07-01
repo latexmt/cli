@@ -32,6 +32,7 @@ def main():
         src_lang=args.src_lang, tgt_lang=args.tgt_lang,
         trans_type=args.translator, align_type=args.aligner,
         opus_model_base=args.opus_model_base,
+        opus_input_prefix=args.opus_input_prefix,
         logger=logging.getLogger(__name__)
     )
 

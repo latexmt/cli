@@ -45,6 +45,12 @@ parser.add_argument(
     required=False
 )
 parser.add_argument(
+    '-P', '--opus-input-prefix',
+    help=('A prefix to add to the translation input (for multilingual models)\n'
+          'e.g. `>>ita<<`'),
+    required=False
+)
+parser.add_argument(
     '-g', '--glossary-file',
     help='path to file containing glossary in SOURCE,TARGET format',
     required=False
