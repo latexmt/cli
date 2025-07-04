@@ -40,14 +40,16 @@ parser.add_argument(
 )
 parser.add_argument(
     '-M', '--opus-model-base',
-    help=('use specified model (local or on HF) instead of Helsinki-NLP/opus-mt-{src}-{tgt}\n'
+    help=('use specified model (local or on HF) to generate translations'
           '{src} and {tgt} may be used as placeholders for source and target language'),
+    default='Helsinki-NLP/opus-mt-{src}-{tgt}',
     required=False
 )
 parser.add_argument(
     '-P', '--opus-input-prefix',
     help=('A prefix to add to the translation input (for multilingual models)\n'
           'e.g. `>>ita<<`'),
+    default='',
     required=False
 )
 parser.add_argument(
